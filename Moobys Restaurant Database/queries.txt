@@ -1,0 +1,83 @@
+//for restaurant page list
+SELECT R.id, R.address, R.city, R.state FROM mby_restaurant R
+
+
+//for employee list
+SELECT E.id, E.fname, E.lname, P.title, R.city, E.hourly_rate, E.phone
+FROM mby_employee E INNER JOIN mby_position P
+ON E.position_id = P.id INNER JOIN mby_restaurant R
+ON E.restaurant_id = R.id
+ORDER BY E.id ASC
+
+
+//for position list
+SELECT P.id, P.title FROM mby_position P
+
+
+//for menu item list
+SELECT M.id, M.name, M.price, M.description FROM mby_menu_items M
+
+
+//for work schedule list
+SELECT S.date, R.city, S.employee_id, E.fname, E.lname, P.title, S.start_time, S.end_time
+FROM mby_schedule S INNER JOIN mby_employee E ON S.employee_id = E.id 
+INNER JOIN mby_position P ON E.position_id = P.id 
+INNER JOIN mby_restaurant R ON E.restaurant_id = R.id
+ORDER BY S.date DESC, R.city ASC, P.title ASC
+
+
+//for sales list
+SELECT SA.date, M.id, M.name, SA.item_quantity, M.price, R.city, E.fname, E.lname
+FROM mby_sales SA INNER JOIN mby_menu_items M ON SA.item_id = M.id
+INNER JOIN mby_restaurant R ON SA.restaurant_id = R.id
+INNER JOIN mby_employee E ON SA.employee_id = E.id
+ORDER BY SA.date DESC, M.name ASC, R.city ASC
+
+//for  employee add employee form - location drop down box
+SELECT R.id, R.city FROM mby_restaurant R
+
+//for employee add employee form - position drop down box
+SELECT P.title FROM mby_position P
+
+//insert statements --values filled in by PHP
+//for inserting into restaurants
+INSERT INTO mby_restaurant(address, city, state, zip) VALUES (?,?,?,?)
+
+//for inserting into employees
+INSERT INTO mby_employee(restaurant_id, position_id, fname, lname, hourly_rate, phone) 
+		VALUES (?,?,?,?,?,?)
+		
+
+//for inserting into positions
+INSERT INTO mby_position(title) VALUES (?)
+
+//for inserting into menu_items
+INSERT INTO mby_menu_items(name, price, description) VALUES (?,?,?)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+{
+  "name": "moobys",
+  "authors": [
+    "Brian Wilkins <wilkibri@oregonstate.edu>",
+    "Michael Tarantino <tarantim@oregonstate.edu>"
+  ],
+  "description": "CS340 Project",
+  "main": "index.php",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6"
+  }
+}
